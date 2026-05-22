@@ -37,3 +37,12 @@ unemployment_df.dropna(inplace=True)
 # Convert Date Column into Datetime Format
 unemployment_df['Date'] = pd.to_datetime(unemployment_df['Date'])
 
+
+# Check Average Unemployment Rate
+average_unemployment = unemployment_df['Estimated Unemployment Rate (%)'].mean()
+print('Average Unemployment Rate:', average_unemployment)
+
+# Highest Unemployment Regions
+highest_unemployment_regions = unemployment_df.groupby('Region')['Estimated Unemployment Rate (%)'].mean().sort_values(ascending=False)
+print('Highest Unemployment Regions:' , highest_unemployment_regions.head())
+
