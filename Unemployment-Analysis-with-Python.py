@@ -15,3 +15,12 @@ unemployment_df = pd.read_csv('Unemployment in India.csv')
 
 # Display first 5 rows
 print(unemployment_df.head())
+
+# Dataset information
+print(unemployment_df.info())
+
+# Statistical summary
+print(unemployment_df.describe())
+
+# Column names
+print(unemployment_df.columns)
