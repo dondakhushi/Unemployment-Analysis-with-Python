@@ -103,3 +103,20 @@ sns.heatmap(
 
 plt.title('Correlation Heatmap')
 plt.show()
+
+# Extract Month and Year
+unemployment_df['Month'] = unemployment_df['Date'].dt.month
+unemployment_df['Year'] = unemployment_df['Date'].dt.year
+
+# Monthly Average Unemployment
+monthly_trend = unemployment_df.groupby('Month')['Estimated Unemployment Rate (%)'].mean()
+
+plt.figure(figsize=(10,5))
+
+monthly_trend.plot(marker='o')
+
+plt.title('Monthly Unemployment Trend')
+plt.xlabel('Month')
+plt.ylabel('Average Unemployment Rate (%)')
+plt.grid(True)
+plt.show()
